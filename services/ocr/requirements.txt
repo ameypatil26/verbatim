@@ -1,0 +1,19 @@
+# Verbatim OCR microservice
+fastapi==0.115.6
+uvicorn[standard]==0.34.0
+python-multipart==0.0.20
+httpx==0.28.1
+numpy>=1.26,<3
+pillow>=10.3,<14
+
+# OCR: RapidOCR-ONNX ships its own det/rec/cls models.
+rapidocr-onnxruntime==1.4.4
+# Optional alternative: uncomment instead of rapidocr (set VERBATIM_OCR_ENGINE=paddle)
+# paddleocr>=2.7,<3
+# paddlepaddle>=2.6,<3
+
+# PDF rendering, dual-layer output
+pymupdf>=1.24,<3
+
+# QR and barcodes (pyzbar's wheel bundles libzbar on Windows)
+pyzbar>=0.1.9

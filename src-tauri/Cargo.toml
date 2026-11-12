@@ -1,0 +1,52 @@
+[package]
+name = "verbatim"
+version = "1.0.0"
+description = "Verbatim — Every word, on your machine."
+authors = ["Verbatim"]
+edition = "2021"
+rust-version = "1.77.2"
+license = "MIT"
+repository = "https://github.com/verbatim-app/verbatim"
+
+[lib]
+name = "verbatim_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = [] }
+tauri-plugin-opener = "2"
+tauri-plugin-shell = "2"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+tokio = { version = "1", features = ["full"] }
+reqwest = { version = "0.12", default-features = false, features = ["json", "multipart", "stream", "rustls-tls", "blocking"] }
+futures-util = "0.3"
+rusqlite = { version = "0.32", features = ["bundled", "chrono"] }
+chrono = { version = "0.4", features = ["serde"] }
+uuid = { version = "1", features = ["v4", "serde"] }
+dirs = "5"
+cpal = "0.15"
+hound = "3.5"
+enigo = "0.2"
+global-hotkey = "0.6"
+arboard = "3.4"
+image = { version = "0.25", default-features = false, features = ["png"] }
+base64 = "0.22"
+thiserror = "2"
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+tracing-appender = "0.2"
+which = "7"
+
+[features]
+custom-protocol = ["tauri/custom-protocol"]
+
+[profile.release]
+panic = "abort"
+codegen-units = 1
+lto = true
+opt-level = "s"
+strip = true

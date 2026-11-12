@@ -1,0 +1,50 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "Verbatim",
+  "version": "1.0.0",
+  "identifier": "app.verbatim.desktop",
+  "build": {
+    "beforeDevCommand": "npm run dev",
+    "devUrl": "http://127.0.0.1:1420",
+    "beforeBuildCommand": "npm run build",
+    "frontendDist": "../dist"
+  },
+  "app": {
+    "windows": [
+      {
+        "label": "main",
+        "title": "Verbatim",
+        "width": 1000,
+        "height": 700,
+        "minWidth": 900,
+        "minHeight": 600,
+        "resizable": true,
+        "fullscreen": false,
+        "center": true,
+        "decorations": true,
+        "backgroundColor": "#1a1a2e"
+      }
+    ],
+    "security": {
+      "csp": "default-src 'self'; connect-src 'self' ipc: http://ipc.localhost http://127.0.0.1:* http://localhost:* https://huggingface.co https://github.com; img-src 'self' data: blob: http://127.0.0.1:*; style-src 'self' 'unsafe-inline'; script-src 'self'"
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": "all",
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.ico"
+    ],
+    "resources": [
+      "../services/**/*",
+      "../README.md"
+    ],
+    "shortDescription": "Every word, on your machine.",
+    "longDescription": "Local-first dictation, transcription, OCR, searchable PDFs, and Markdown notes. No cloud, no API keys, no telemetry.",
+    "category": "Productivity",
+    "copyright": "MIT"
+  }
+}

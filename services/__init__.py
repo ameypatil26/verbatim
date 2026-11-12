@@ -1,0 +1,1 @@
+"""Verbatim local microservices."""

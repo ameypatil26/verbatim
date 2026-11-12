@@ -1,0 +1,48 @@
+{
+  "manifest_version": 3,
+  "name": "Verbatim — Local OCR & Transcripts",
+  "short_name": "Verbatim",
+  "version": "1.0.0",
+  "description": "Local OCR, page summaries, and media transcription through your own Verbatim desktop services. No cloud, no API keys, no telemetry.",
+  "minimum_chrome_version": "116",
+  "permissions": [
+    "activeTab",
+    "tabs",
+    "contextMenus",
+    "scripting",
+    "storage",
+    "clipboardWrite"
+  ],
+  "host_permissions": [
+    "http://127.0.0.1/*",
+    "http://localhost/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "Verbatim",
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle",
+      "all_frames": false
+    }
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  }
+}

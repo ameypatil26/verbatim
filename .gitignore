@@ -1,0 +1,55 @@
+# dependencies
+node_modules/
+.pnpm-store/
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# build output
+dist/
+web/dist/
+src-tauri/target/
+target/
+extension/*.js.map
+
+# generated extension bundles are committed for "Load unpacked"; keep them
+!extension/background.js
+!extension/content.js
+
+# environment and local data
+.env
+.env.*
+!.env.example
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+verbatim-acl-recovery/
+
+# logs and models
+logs/
+models/
+*.log
+
+# editor / OS
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+
+# test artifacts
+test-results/
+playwright-report/
+screenshots/
+.cargo/
+.cargo-target/
+.npm-cache/
+.pydeps/
+.rustup/
+.tools/
+.tmp/

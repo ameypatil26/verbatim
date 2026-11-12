@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Verbatim</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <header class="head">
+      <div class="logo" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+      <div class="brand">
+        <div class="wordmark">VERBATIM</div>
+        <div class="tagline">Every word, on your machine.</div>
+      </div>
+      <span class="local">LOCAL</span>
+    </header>
+
+    <section class="detect" id="detect">
+      <span class="dot checking" id="detect-dot"></span>
+      <div>
+        <strong id="detect-title">Checking Verbatim…</strong>
+        <span id="detect-detail">Looking for localhost services</span>
+      </div>
+      <button type="button" id="retry" class="icon-button" title="Re-check">↻</button>
+    </section>
+
+    <section class="status-grid" aria-label="Local service status">
+      <div class="service">
+        <span class="dot" id="asr-dot"></span>
+        <div><strong>ASR</strong><span id="asr-port-label">:8001</span></div>
+        <em id="asr-state">checking</em>
+      </div>
+      <div class="service">
+        <span class="dot" id="ocr-dot"></span>
+        <div><strong>OCR</strong><span id="ocr-port-label">:8002</span></div>
+        <em id="ocr-state">checking</em>
+      </div>
+      <div class="service">
+        <span class="dot" id="ollama-dot"></span>
+        <div><strong>Ollama</strong><span id="ollama-port-label">:11434</span></div>
+        <em id="ollama-state">checking</em>
+      </div>
+    </section>
+
+    <section class="quick">
+      <button class="capture" type="button" id="capture" disabled>
+        <svg viewBox="0 0 20 20" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M3 7V5a2 2 0 0 1 2-2h2m6 0h2a2 2 0 0 1 2 2v2m0 6v2a2 2 0 0 1-2 2h-2M7 17H5a2 2 0 0 1-2-2v-2" stroke-linecap="round" />
+          <circle cx="10" cy="10" r="2.3" />
+        </svg>
+        OCR visible tab
+      </button>
+      <span>Copies text to clipboard</span>
+    </section>
+
+    <section class="settings">
+      <label class="toggle-row">
+        <div>
+          <strong>Enable Verbatim</strong>
+          <span>Context menus and floating button</span>
+        </div>
+        <input type="checkbox" id="enabled" />
+        <span class="switch"></span>
+      </label>
+      <label class="toggle-row">
+        <div>
+          <strong>Floating button</strong>
+          <span>Quick OCR from any page</span>
+        </div>
+        <input type="checkbox" id="floating" />
+        <span class="switch"></span>
+      </label>
+
+      <div class="ports-head">
+        <span>LOCALHOST PORTS</span>
+        <span class="ports-hint">Must match desktop settings</span>
+      </div>
+      <div class="ports">
+        <label><span>ASR</span><input id="asr-port" type="number" min="1" max="65535" inputmode="numeric" /></label>
+        <label><span>OCR</span><input id="ocr-port" type="number" min="1" max="65535" inputmode="numeric" /></label>
+        <label><span>LLM</span><input id="ollama-port" type="number" min="1" max="65535" inputmode="numeric" /></label>
+      </div>
+      <div class="save-row">
+        <button type="button" id="save" class="save">Save ports</button>
+        <span id="saved"></span>
+      </div>
+    </section>
+
+    <footer>
+      <span>No cloud · No API keys · No telemetry</span>
+      <a href="https://github.com/verbatim-app/verbatim" target="_blank" rel="noopener noreferrer">GitHub</a>
+    </footer>
+
+    <script src="popup.js"></script>
+  </body>
+</html>

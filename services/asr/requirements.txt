@@ -1,0 +1,16 @@
+# Verbatim ASR microservice
+fastapi==0.115.6
+uvicorn[standard]==0.34.0
+python-multipart==0.0.20
+httpx==0.28.1
+
+# SenseVoice via FunASR (model downloaded on first use / by download_models.py)
+funasr==1.2.6
+modelscope==1.22.0
+torch>=2.2,<3
+torchaudio>=2.2,<3
+numpy>=1.26,<3
+soundfile==0.12.1
+
+# Optional but recommended: URL fallback and media decoding
+yt-dlp>=2025.1.15
